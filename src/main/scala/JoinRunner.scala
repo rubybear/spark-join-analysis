@@ -1,9 +1,6 @@
 import JoinUtils.{DataA, DataB, JoinedDS}
 import org.apache.spark.sql.{DataFrame, Dataset, SparkSession}
 
-import scala.io.StdIn
-import scala.util.Try
-
 object JoinRunner extends Props {
 
   def main(args: Array[String]) = {
