@@ -54,8 +54,6 @@ class JoinRunnerTest extends AnyFunSpec with BeforeAndAfter with DatasetSuiteBas
       val expectedDataFrame = spark.createDataFrame(expectedData).select("id", "country", "ip", "url", "page_info").sort("id")
 
       val result = JoinRunner.bucketJoin(spark.table("dataA").as[DataA], spark.table("dataB").as[DataB])(spark).select("id", "country", "ip", "url", "page_info").sort("id")
-      expectedDataFrame.show
-      result.show
       assertDatasetEquals(expectedDataFrame.as[JoinedDS], result.as[JoinedDS])
     }
   }
